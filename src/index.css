@@ -24,18 +24,24 @@ div.cards {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 16px;
 }
-div.cards:not(.cards__empty) .card {
-  opacity: .8;
-}
+
 div.card {
   background: var(--white);
   position: relative;
   text-align: left;
   z-index: 1;
   min-width: 300px;
-  transition: transform 5.3s ease-in-out;
+  transition: all 1.3s ease-in-out;
+  opacity: 1;
+  transform: scale(1);
 }
-
+.cards__empty .card.unselected {
+  opacity: 1;
+  transform: scale(1);
+}
+.cards:not(.cards__empty) .card.unselected {
+  opacity: .7;
+}
 .card__img-box {
   width: 100%;
   overflow: hidden;

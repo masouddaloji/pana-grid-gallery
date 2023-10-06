@@ -2,7 +2,7 @@
 const Card = ({ title, subTitle, caption, onClick, isSelected,handleToggleInfo, isEmptySelected  }) => {
   return (
     <div
-      className={`card ${(isSelected ) ? "selected" : ""} `}
+      className={`card ${(isSelected ) ? "selected" : "unselected"} `}
       onClick={onClick}
     >
     <div className="card__img-box">
