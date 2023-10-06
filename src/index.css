@@ -22,10 +22,8 @@ div.cards {
   text-align: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-  grid-auto-flow:row dense;
+  grid-auto-flow: dense;
   grid-gap: 16px;
-  transition: all 5.3s ease-in-out;
-
 }
 
 div.card {
@@ -35,17 +33,16 @@ div.card {
   z-index: 1;
   min-width: 300px;
   transform: translateX(1px);
-  transition: all 5.3s ease-in-out;
 }
 .cards__empty .card.unselected {
   opacity: 1;
   transform: scale(1);
 }
 .cards:not(.cards__empty) .card.unselected {
-  opacity: .7;
+  opacity: 0.7;
 }
 .cards:not(.cards__empty) .card.unselected:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 .card__img-box {
   width: 100%;

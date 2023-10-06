@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {wrapGrid} from 'animate-css-grid';
 //components
 import Card from "./card";
 
 const Cards = () => {
+  const cardsRef=useRef(null)
   const [selectedCard, setSelectedCard] = useState(null);
   const myCards = [
     {
@@ -63,22 +65,25 @@ const Cards = () => {
       setSelectedCard(index);
     }
   };
+  useEffect(() => {
+    wrapGrid(cardsRef?.current, { easing: 'backOut', stagger: 10, duration: 400 });
+  }, []);
   return (
-    <div
-      className={`cards ${
-        (selectedCard === null || selectedCard === "") && "cards__empty"
-      }`}
-    >
-      {myCards.map((item, index) => (
-        <Card
-          key={item.id}
-          {...item}
-          isSelected={selectedCard === index}
-          handleToggleInfo={() => clickHandler(index)}
-          isEmptySelected={selectedCard}
-        />
-      ))}
-    </div>
+      <div
+        className={`cards ${
+          (selectedCard === null || selectedCard === "") && "cards__empty"
+        }`}
+        ref={cardsRef}
+      >
+        {myCards.map((item, index) => (
+          <Card
+            key={item.id}
+            {...item}
+            isSelected={selectedCard === index}
+            handleToggleInfo={() => clickHandler(index)}
+          />
+        ))}
+      </div>
   );
 };
 
