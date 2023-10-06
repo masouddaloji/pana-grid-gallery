@@ -31,7 +31,7 @@ div.card {
   text-align: left;
   z-index: 1;
   min-width: 300px;
-  transition: all 1.3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 .cards__empty .card.unselected {
   opacity: 1;
@@ -39,6 +39,9 @@ div.card {
 }
 .cards:not(.cards__empty) .card.unselected {
   opacity: .7;
+}
+.cards:not(.cards__empty) .card.unselected:hover {
+  opacity: .9;
 }
 .card__img-box {
   width: 100%;
