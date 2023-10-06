@@ -9,7 +9,8 @@ const Cards = () => {
       id: "card_1",
       title: "title 1",
       subTitle: "sub title 1",
-      caption: "This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.",
+      caption:
+        "This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.This is the detailed information for card 1.",
     },
     {
       id: "card_2",
@@ -55,21 +56,25 @@ const Cards = () => {
     },
   ];
 
-  const clickHandler=(index)=>{
+  const clickHandler = (index) => {
     if (selectedCard === index) {
       setSelectedCard(null);
-    }else{
-    setSelectedCard(index);
+    } else {
+      setSelectedCard(index);
     }
-  }
+  };
   return (
-    <div className={`cards ${(selectedCard===null||selectedCard==="")&&"cards__empty"}`}>
+    <div
+      className={`cards ${
+        (selectedCard === null || selectedCard === "") && "cards__empty"
+      }`}
+    >
       {myCards.map((item, index) => (
         <Card
           key={item.id}
           {...item}
           isSelected={selectedCard === index}
-          handleToggleInfo={()=>clickHandler(index)}
+          handleToggleInfo={() => clickHandler(index)}
           isEmptySelected={selectedCard}
         />
       ))}
